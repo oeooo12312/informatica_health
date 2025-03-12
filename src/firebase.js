@@ -1,13 +1,13 @@
 // firebase.js (in your frontend project)
 
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth"; // Authentication
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"; // Authentication
 import { getFirestore } from "firebase/firestore"; // Firestore
 
 // Your Firebase config (already set in your Firebase console)
 // I heard it's generally safe to expose ? 
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_API_KEY, // I'll send it privately
+    apiKey: import.meta.env.VITE_APP_API_KEY, // I'll send it privately
     authDomain: "informaticahack-5fc53.firebaseapp.com",
     projectId: "informaticahack-5fc53",
     storageBucket: "informaticahack-5fc53.firebasestorage.app",
@@ -16,6 +16,8 @@ const firebaseConfig = {
     measurementId: "G-DWFX2DZYBH"
   };
 
+console.log(import.meta);
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
@@ -23,4 +25,12 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-export { auth, db };
+const createUserWithEmailAndPasswordWrapper = (email, password) => {
+    createUserWithEmailAndPassword(auth, email, password);
+}
+
+const signInWithEmailAndPasswordWrapper = (email, password) => {
+    signInWithEmailAndPassword(auth, email, password);
+}
+
+export { signInWithEmailAndPasswordWrapper, createUserWithEmailAndPasswordWrapper };

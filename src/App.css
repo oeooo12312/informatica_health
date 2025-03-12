@@ -1,0 +1,46 @@
+.landing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1604083872066-23702db4b05d'); /* Background image for medical theme */
+  background-size: cover;
+  background-position: center;
+  cursor: pointer; /* Makes the entire page clickable */
+}
+
+.content {
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-family: 'Arial', sans-serif;
+}
+
+.description {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta-btn {
+  padding: 1rem 2rem;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.cta-btn:hover {
+  background-color: #45a049;
+}

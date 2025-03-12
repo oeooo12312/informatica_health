@@ -10,7 +10,6 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockNavigate,
 }));
 
-
 /**
  * Before :
  */
@@ -31,22 +30,35 @@ describe("Login Component", () => {
     );
   };
 
+  // Generalized function to prevent repeat, keep it clean.
+  const login = (email, password) => {
+    fireEvent.change(screen.getById("email"), {
+        target: { value: email }, // replace this with the test data in .env.test_data
+    });
+    fireEvent.change(screen.getById("password"), {
+        target: { value: password },            // replace this with the test data in .env.test_data
+    });
+    
+    fireEvent.click(screen.getById("login-btn")); // getting the html element by text
+  
+  }
   // Scenario 1 : Login with an invalid credentials.
   test("shows error toast on invalid credentials", async () => {
     mockAuthService.login.mockResolvedValue(false);
     setup();
 
-    fireEvent.change(screen.getByPlaceholderText("Username"), {
-      target: { value: "wrongUser" },
-    });
-    fireEvent.change(screen.getByPlaceholderText("Password"), {
-      target: { value: "wrongPass" },
-    });
-    fireEvent.click(screen.getByText("Login"));
+    login(
+        process.env.VITE_APP_TEST_1_EMAIL,
+        process.env.VITE_APP_TEST_1_PASSWORD,
+    )
 
-    await waitFor(() =>
-      expect(screen.getByRole("alert")).toHaveTextContent("Invalid credentials")
-    );
+    // Expected outcome : Toast error to be thrown in the front-end client side.
+
+    await waitFor(() => {
+        const toast = screen.getByText('Invalid credentials'); // Check the toast message
+        expect(toast).toBeInTheDocument();
+    });
+
     expect(mockNavigate).not.toHaveBeenCalled();
   });
 
@@ -55,15 +67,17 @@ describe("Login Component", () => {
     mockAuthService.login.mockResolvedValue(true);
     setup();
 
-    fireEvent.change(screen.getByPlaceholderText("Username"), {
-      target: { value: "correctUser" },
-    });
-    fireEvent.change(screen.getByPlaceholderText("Password"), {
-      target: { value: "correctPass" },
-    });
-    fireEvent.click(screen.getByText("Login"));
+    login(
+        process.env.VITE_APP_TEST_2_EMAIL,
+        process.env.VITE_APP_TEST_2_PASSWORD,
+    )
 
-    await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith("/dashboard"));
+    // Expected outcome : Navigate to the dashboard route.
+
+    await waitFor(
+        () => expect(mockNavigate).toHaveBeenCalledWith("/dashboard")
+    );
+
     expect(screen.queryByRole("alert")).not.toBeInTheDocument();
   });
 });

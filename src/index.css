@@ -1,0 +1,164 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Body and background */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+/* Light and Dark Mode */
+:root {
+  --background-color: #fff;
+  --text-color: #333;
+  --primary-color: #6200ea;
+  --secondary-color: #03dac6;
+  --card-background: #f5f5f5;
+  --border-radius: 8px;
+  --button-hover-color: #3700b3;
+}
+
+[data-theme='dark'] {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --primary-color: #bb86fc;
+  --secondary-color: #03dac6;
+  --card-background: #333;
+  --border-radius: 8px;
+  --button-hover-color: #bb86fc;
+}
+
+/* Header Styling */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styles */
+button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover-color);
+}
+
+/* Card/Container Style */
+.card {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  transition: background-color 0.3s ease;
+}
+
+/* Form Styling */
+input[type="text"], input[type="password"], input[type="email"], textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* Flexbox Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 20px;
+}
+
+/* Thematic Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--button-hover-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+      font-size: 1.5rem;
+  }
+
+  .card {
+      padding: 15px;
+      margin: 10px;
+  }
+
+  button {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+      font-size: 1.2rem;
+  }
+
+  .card {
+      padding: 10px;
+      margin: 5px;
+  }
+
+  button {
+      padding: 6px 12px;
+      font-size: 0.8rem;
+  }
+}
