@@ -1,16 +1,14 @@
+// Card.jsx
 import "./Card.css";
-import { useNavigate } from "react-router-dom";
 
-function Card({keyValue}) {
-
-    const [title, link] = keyValue;
-    const navigate = useNavigate();
-
+function Card({ title, value, description }) {
     return (
-      <div className="card" onClick={() => navigate(link)}>
-        <h3>{title}</h3>
-      </div>
+        <div className="card">
+            <h3>{title}</h3>
+            <p className="card-value">{value}</p>
+            <p className="card-description">{description}</p>
+        </div>
     );
-  }
-  
-  export default Card;
+}
+
+export default Card;
