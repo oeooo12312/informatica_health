@@ -1,0 +1,72 @@
+.auth-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color); /* Dark grey background */
+    color: var(--text-color);
+    text-align: center;
+    width: 30rem;
+    max-width: 50rem;
+    height: 30rem;
+    border-radius: 8px; /* Slightly rounded corners for a smooth look */
+    padding: 2rem;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-box:hover {
+    transform: translateY(-5px); /* Slight hover effect for better interaction */
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.4); /* Increased shadow on hover */
+}
+
+.auth-box .input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 15px;
+}
+.auth-box label {
+    width: 8rem;
+    text-align: right;
+}
+.auth-box input,
+.auth-box button {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.auth-box input:focus,
+.auth-box button:focus {
+    outline: none;
+    border-color: #3498db; /* Highlight color on focus */
+}
+
+.auth-box button {
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    width: 10rem;
+}
+
+.auth-box button:hover {
+    background-color: #2980b9; /* Darken the button on hover */
+}
+
+.auth-box h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.auth-box .visual_login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2rem;
+}

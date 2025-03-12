@@ -1,0 +1,19 @@
+.dashboard {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.voice-dashboard {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+  
+.visual-dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}

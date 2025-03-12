@@ -1,5 +1,5 @@
-w/o auto-resolve : 
+To sync all branches with main w/o auto-resolve : 
 git checkout main && git pull origin main && git fetch origin main && for branch in $(git branch | grep -v main); do git checkout $branch && git merge origin/main; done && git checkout main
 
-w auto-resolve : 
+To sync all branches with main w auto-resolve : 
 for branch in $(git branch | grep -v main); do git checkout $branch && git merge -X theirs origin/main; done && git checkout main
