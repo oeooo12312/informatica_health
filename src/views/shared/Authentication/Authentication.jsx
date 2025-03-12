@@ -6,6 +6,10 @@ function Authentication(user) {
      *      2. Have both sign-up and login features
      *      3. General for all patient/doctor/pharmacy
      */
+
+    return (
+        <></>
+    )
 }
 
 export default Authentication;

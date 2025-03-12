@@ -6,6 +6,10 @@ function Payment() {
      *      1. Voice-based
      *      2. Allow users to make payments for their medical bills 
      */
+
+    return (
+        <></>
+    )
 }
 
 export default Payment;
