@@ -10,12 +10,15 @@ import {
   faRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
 import { Sun, Moon } from 'lucide-react';
-import { useState, useContext } from 'react';
-import ThemeContext from '../../context/ThemeContext';
+import { useState } from 'react';
+import { useThemeContext } from '../../context/ThemeContext';
+import { useUserContext } from '../../context/UserContext';
 import './SideBar.css';
 
-const SideBar = ({ userType, onLogout }) => {
-  const { selectedTheme, handleThemeToggle } = useContext(ThemeContext);
+const SideBar = ({ userType }) => {
+
+  const { selectedTheme, handleThemeToggle } = useThemeContext();
+  const { logout } = useUserContext();
   const [isExpanded, setIsExpanded] = useState(false);
   const location = useLocation();
 
@@ -97,7 +100,7 @@ const SideBar = ({ userType, onLogout }) => {
             {selectedTheme === 'light' ? <Moon /> : <Sun />}
           </button>
           <button
-            onClick={onLogout}
+            onClick={logout}
             className="logout-button"
             title={!isExpanded ? 'Logout' : ''}
           >

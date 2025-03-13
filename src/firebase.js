@@ -1,7 +1,7 @@
 // firebase.js (in your frontend project)
 
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"; // Authentication
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth"; // Authentication
 import { getFirestore } from "firebase/firestore"; // Firestore
 
 // Your Firebase config (already set in your Firebase console)
@@ -33,4 +33,12 @@ const signInWithEmailAndPasswordWrapper = (email, password) => {
     signInWithEmailAndPassword(auth, email, password);
 }
 
-export { signInWithEmailAndPasswordWrapper, createUserWithEmailAndPasswordWrapper };
+const signOutWrapper = (onSuccess, onError) => {
+    try {
+        signOut(auth);
+        onSuccess();
+    } catch (e) {
+        onError(e);
+    }
+}
+export { auth, signInWithEmailAndPasswordWrapper, createUserWithEmailAndPasswordWrapper, signOutWrapper };
