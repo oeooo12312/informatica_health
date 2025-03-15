@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--background-color); /* Dark grey background */
+    background-color: var(--primary-color); /* Dark grey background */
     color: var(--text-color);
     text-align: center;
     width: 30rem;

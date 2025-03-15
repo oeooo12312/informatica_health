@@ -1,7 +1,7 @@
 // firebase.js (in your frontend project)
 
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth"; // Authentication
+import { getAuth } from "firebase/auth"; // Authentication
 import { getFirestore } from "firebase/firestore"; // Firestore
 
 // Your Firebase config (already set in your Firebase console)
@@ -25,20 +25,4 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const createUserWithEmailAndPasswordWrapper = (email, password) => {
-    createUserWithEmailAndPassword(auth, email, password);
-}
-
-const signInWithEmailAndPasswordWrapper = (email, password) => {
-    signInWithEmailAndPassword(auth, email, password);
-}
-
-const signOutWrapper = (onSuccess, onError) => {
-    try {
-        signOut(auth);
-        onSuccess();
-    } catch (e) {
-        onError(e);
-    }
-}
-export { auth, signInWithEmailAndPasswordWrapper, createUserWithEmailAndPasswordWrapper, signOutWrapper };
+export { auth, db };

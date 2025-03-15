@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { signInWithEmailAndPasswordWrapper, createUserWithEmailAndPasswordWrapper } from "../../../firebase";
+import React, { useState, useEffect } from "react";
 import "./Authentication.css";
-import toast from 'react-hot-toast';
 import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../../../context/UserContext";
 
 /**
  * This authentication should have the following conditions :
@@ -10,40 +9,42 @@ import { useNavigate } from "react-router-dom";
  *      2. Have both sign-up and login features
  *      3. General for all patient/doctor/pharmacy
  *      4. May moodularize login and register depending on how large this file gets..
+ *      5. Add one more page before this to check for voice-assist
+ *      6. If voice-assist enabled, 
  */
 function Authentication({ userType }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLogin, setIsLogin] = useState(true); // Switch between login/signup
-    const [error, setError] = useState("");
+    const { user, login, register } = useUserContext();
     const navigate = useNavigate();
+
+    const resetFormfields = () => {
+        setEmail("");
+        setPassword("");
+    }
+
     // Generic function to handle login or sign_up 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setError(""); // Clear previous errors
 
-        try {
-            if (isLogin) {
-                // Handle Login
-                await signInWithEmailAndPasswordWrapper(email, password);
-
-                // Redirect to /dashboard
-
-            } else {
-                // Handle Sign Up
-                await createUserWithEmailAndPasswordWrapper(email, password);
-            }
-
-            console.log("Successful!");
-            navigate("/dashboard");
-            
-        } catch (err) {
-            toast(
-                err.message // why is this error an object ????
-            );
-        }
+        if (isLogin) {
+            console.log("Hello world");
+            // Handle Login
+            await login(email,password, resetFormfields);
+            console.log(user);
+        } else {
+            // Handle Sign Up
+            await register(email, password, resetFormfields);
+        }            
         
     };
+
+    useEffect(() => {
+        if (user) {
+            navigate("/dashboard");            
+        }
+    }, [user])
 
     const toggleLoginSignup = () => {
         setIsLogin(!isLogin);
@@ -74,10 +75,9 @@ function Authentication({ userType }) {
                 required
             />
         </div>
-        {error && <p className="error">{error}</p>}
         <button type="submit">{isLogin ? "Login" : "Sign Up"}</button>
-    </form>
-        <p className="toggle-link">
+    </form>    
+    <p className="toggle-link">
         {isLogin ? (
             <>
                 <span className="toggle-action">Don't have an account? </span> 
@@ -90,6 +90,7 @@ function Authentication({ userType }) {
             </>
         )}
     </p>
+
     </div>
 
     return (
