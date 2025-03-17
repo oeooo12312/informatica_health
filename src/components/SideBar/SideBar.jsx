@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUserDoctor,
@@ -13,6 +13,7 @@ import { Sun, Moon } from 'lucide-react';
 import { useState } from 'react';
 import { useThemeContext } from '../../context/ThemeContext';
 import { useUserContext } from '../../context/UserContext';
+import toast from 'react-hot-toast';
 import './SideBar.css';
 
 const SideBar = ({ userType }) => {
@@ -21,6 +22,7 @@ const SideBar = ({ userType }) => {
   const { logout } = useUserContext();
   const [isExpanded, setIsExpanded] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const drawerItems = {
     doctor: [
@@ -49,6 +51,16 @@ const SideBar = ({ userType }) => {
     setIsExpanded((prev) => !prev);
   };
 
+  const onLogout = () => {
+    try {
+        logout();
+        navigate('/');
+    } catch (error) {
+        toast.error(error.message);
+    }
+
+  }
+
   return (
     <aside
       className={`sidebar-container ${isExpanded ? 'expanded' : 'collapsed'}`}
@@ -58,7 +70,7 @@ const SideBar = ({ userType }) => {
         {/* Header Section */}
         <div className="sidebar-header">
           {isExpanded && 
-            <span className="logo-text">HealthPro</span>
+            <span className="logo-text">MedPro</span>
             }
           <button
             onClick={handleSidebarToggle}
@@ -100,7 +112,7 @@ const SideBar = ({ userType }) => {
             {selectedTheme === 'light' ? <Moon /> : <Sun />}
           </button>
           <button
-            onClick={logout}
+            onClick={onLogout}
             className="logout-button"
             title={!isExpanded ? 'Logout' : ''}
           >

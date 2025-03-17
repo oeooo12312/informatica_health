@@ -50,6 +50,11 @@ function Authentication({ userType }) {
         setIsLogin(!isLogin);
     };
 
+    const voice_login = 
+    <div className="voice-login">
+        
+    </div>
+
     const visual_login = 
     <div className="visual_login">
     <form onSubmit={handleSubmit}>
