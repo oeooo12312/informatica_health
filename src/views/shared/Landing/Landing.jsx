@@ -1,13 +1,26 @@
 import "./Landing.css";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useUserContext } from "../../../context/UserContext";
 
 function Landing() {
 
     const navigate = useNavigate();
+    const { user } = useUserContext();
 
     const handleRedirect = () => {
         navigate("/auth");
     };
+
+    useEffect(() => {
+        if (user) {
+            navigate("/dashboard")
+        } else {
+            handleRedirect();
+        }
+        },
+        [user]
+    )
 
     return (
         <div className="landing-container" onClick={handleRedirect}>
