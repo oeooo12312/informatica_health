@@ -2,7 +2,7 @@
 
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth"; // Authentication
-import { getFirestore } from "firebase/firestore"; // Firestore
+import { getFirestore, collection, addDoc } from "firebase/firestore"; // Firestore
 
 // Your Firebase config (already set in your Firebase console)
 // I heard it's generally safe to expose ? 

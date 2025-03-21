@@ -49,26 +49,35 @@ export const textToSpeech = (text, audio, character, onEnd) => {
 
 // Initialize Speech Recognition
 // takes in the setTranscription function from react useState.
-export const initSpeechRecognition = (setTranscription) => {
+// Speech Initialization
+export const initSpeechRecognition = (setTranscription, transcriptionRef) => {
     if (!('webkitSpeechRecognition' in window)) {
         console.error('Speech Recognition not supported');
         return null;
     }
 
     const recognition = new window.webkitSpeechRecognition();
-    recognition.continuous = false;
-    recognition.interimResults = true;
+    recognition.continuous = false;    // Stop after result
+    recognition.interimResults = true; // Capture partials
     recognition.lang = 'en-US';
 
     recognition.onresult = (event) => {
         let transcript = '';
+
         for (let i = event.resultIndex; i < event.results.length; i++) {
-            transcript += event.results[i][0].transcript;
+            if (event.results[i].isFinal) {
+                transcript += event.results[i][0].transcript;
+            }
         }
-        setTranscription(transcript);
+
+        if (transcript) {
+            setTranscription(() => {
+                transcriptionRef.current = transcript; // Sync immediately
+                return transcript;
+            });
+        }
     };
 
     recognition.onerror = (error) => console.error('Speech Recognition Error:', error);
-
     return recognition;
 };

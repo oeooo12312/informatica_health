@@ -92,7 +92,7 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 
 /* Links */
 a {
-  color: var(--primary-color);
+  color: var(--text-color);
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;

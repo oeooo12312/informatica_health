@@ -63,10 +63,20 @@
     font-size: 1.5rem;
 }
 
-.auth-box .visual_login {
+.auth-box .visual-auth {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     row-gap: 2rem;
+}
+
+.auth-box .voice-auth {
+    height: 100%;
+    width: 100%;
+}
+
+.voice-auth .press-to-start {
+    height: 100%;
+    width: 100%;
 }
