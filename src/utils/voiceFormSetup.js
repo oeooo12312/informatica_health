@@ -14,28 +14,21 @@ export const createVoiceFormSetup = ({
     q_map,
     validators,
     state_map,
-    states,
     response_by_characters,
 }) => {
     const { startSpeak, endSpeak } = createSpeechHelpers();
 
     return setup({
-        // context stores the form dynamic variables.
-        context: {
-            form: {},
-            current_state : -1, // increment 
-            current_response: '',
-            bot_response: '',
-            is_speaking: false,
-            answered : false,
-        },
         // actions possible for the form
         actions: {
             // Ask the current question
             askQuestion: ({ context }) => {
                 context.current_state += 1;
                 startSpeak(context);
+                console.log(q_map);
+                console.log(context.current_state);
 
+                console.log(q_map[context.current_state]);
                 textToSpeech(
                     `${q_map[context.current_state]}`,
                     beepAudio,
@@ -91,9 +84,11 @@ export const createVoiceFormSetup = ({
 
             // Cleanup dynamic values
             submitAndCleanup: ({ context }) => {
+                console.log('Cleaning up');
                 context.form[state_map[context.current_state]] = context.current_response;
                 context.current_response = '';
                 context.bot_response = '';
+                endSpeak(context);
                 context.answered = false;
             },
         },
@@ -102,20 +97,27 @@ export const createVoiceFormSetup = ({
             // Check if the provided response is valid
             confirmResponse: ({ context, event }) => {
                 startSpeak(context);
+                console.log(event.response);
                 if (event.response.toUpperCase() === 'YES') {
                     const state = context.current_state;
 
-                    if (!validators[state](context.current_response)) {
+                    if (validators[state](context.current_response)) {
                         textToSpeech(
-                            'The information provided is not valid, please re-submit your response',
-                            beepAudio,
+                            'Thank you for your confirmation. Please proceed to the next question.',
+                            null,
                             false,
-                            () => { context.current_response = ''; endSpeak(context); }
+                            () => { context.current_response = ''; context.answered = false; endSpeak(context); }
                         );
-                        return false; // Validation failed
+                        return true; // Validation successful
                     }
-                    return true; // Validation successful
                 }
+
+                textToSpeech(
+                    'The information provided is not valid, please re-submit your response',
+                    beepAudio,
+                    false,
+                    () => { context.current_response = ''; context.answered = false; endSpeak(context); }
+                );
 
                 // Reset response if confirmation is "NO"
                 context.current_response = '';
@@ -124,7 +126,6 @@ export const createVoiceFormSetup = ({
                 return false;
             },
         },
-        states : states,
     });
 };
 
