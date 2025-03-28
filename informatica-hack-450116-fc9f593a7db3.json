@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "informatica-hack-450116",
+  "private_key_id": "fc9f593a7db3ae6ee61328d3bb1cc279bf825aec",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCMeaXNSKDhQMpC\nncs2n8WguXMqRRXHujtC2P10n+3DzKcrrJsUSnMQ7rQ26F+o8RfKM/ThyRUtF62k\niW8+KWd38rRklINaBOzCJqm3n++UfRoUslww9SgGz2/gtTnyq1iBPpbEZWSAJtQo\nrsVxNDSZjSYWQM31UxlRPY94VlifFER71CHCEUrNQ+T4FTFRnPL3eDzZSkUmliW3\ncNbihqameDsgrzahgx4+JWjL0TFSyEhhgTZNNAPgbZL9WZ27k/gcBh0+51XJqCqo\nSlhRTmcBX4kEyWxGvX9XlejCdC1vCgQBP6Z9V7TUogLRmmLSdnbwC2k4FSqNLXsh\nq7ijA6uvAgMBAAECggEABAaAX8+S/KF0qlAHQLt3WFG4IR/1rdGCXToGmU7z60Z0\nC+ZYU06G2Zddhq1GAHtYKS0v+UBf4PjquupNS8S3+FH2JWO0F+JIPpAJEP/+R40G\nME2kIqsDyJ4tII1Q6clLMfjvLRWSubFjJv9LHSFX2IaY7s5QmJUXBqLy94nR5E0P\ngm5Q23BozkuZJs7rEduHXm1e+HGg6yFBwLGoc0C7rIuQPrH56eg0OfQZ9qVIfIcS\n+t+cLYU5N+PefJi6PPbFK7N5OMdXsv4iVgitqj/iJH57ZgMCX7emRBOT4ZLk8+Gg\nxZ+tE4F6+rumgRIz/+se6C5Yp/dqsygl5TDb6Yu4IQKBgQDBlf/63AWjwmPTZErv\nhkdEuAm+d95h0ZT3G4Ph5MGRdTcv9oHMCLxNF0jVOGTC3/uRH8DI2qdyZoHbz0f5\nx/mAweL4udfq5OJ0ebeCl6x5e3RSKsn1m5KwN9jnK4uuEb6GKh4aV2nrjhE45l/n\nJcc7hxLXx16ZiocRfMBmbhV1yQKBgQC5xAvdmCxVs9nfoWl9ZQRFBLcYcSb/2tef\nNlCVcktc/hp+uY0G1Hd2nfTaFdf3VbAoIgvNiCsjdFHmjd6LdPckaH+2Ee7ozZ8W\n8V22hM3Ek7zhuToGyoQ78N4AEcJB6rYAQnyCt7XUsnD+tfgWgxeJej+cTYisd8P8\naNZzaZkxtwKBgBxuRDb6g1WGohSUwTCmXucnxD6V6jIhjqgwAVF2wDr1pRJFONDX\nY5hK2CaAbsP0E0VADZcyDa+OgHng2mhDx0/yqbvvx1c3IE8M5TenwOvihrXelOSe\nYY/B0/g3e/8nmfyoSN2DgwnWRo89vk37TWRftRO9sxYHs0iNMtCYUEyJAoGAMRl6\nMWXJQhW5XnxhT31ltYBbjKBLuJB1MWW/wuBkvv2Cr0AH4GhD8xwo3YOsg3koiFMH\nX5nAHSzfgNq6mY2ezQa5yrvOs8W1aPD+3gEYCf8qi1bT2Xupm9Y8NzR6bcXFuSfZ\nlQtNihxn9UrPedPIYtPnAD8WAs/dA1gKZpLgpN0CgYAQbKpcFYN51ecGU6gbxpta\nb90STja5xhQv0Hn6XLwYF5V04ByoPhwnjyzXyTixGxNAprzqkY2fr27XGhhla3Uh\nL/bEieenNxXxNb5Z8r1/fgZSkCHcM/IA8mGnbbiOKfNW0hXyXCNK3wdHFzIqMo6z\n3guPhMXSdZZK2xu+LA0nQg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "informatica-hack@informatica-hack-450116.iam.gserviceaccount.com",
+  "client_id": "103736474551770633497",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/informatica-hack%40informatica-hack-450116.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

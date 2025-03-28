@@ -133,6 +133,8 @@ function VoiceForm({voiceForm, onSubmit, config}) {
             onMouseOut={handleRelease}
         >
             <h1>Consultation Machine</h1>
+            <h2>{voiceForm.id == 'login' ? "Login" : "Sign Up"}</h2>
+
             <div>
                 <p>Current State: {currentState}</p>
                 <p><strong>Transcription:</strong> {transcription || "Start speaking..."}</p>

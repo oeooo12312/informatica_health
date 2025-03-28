@@ -22,12 +22,9 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   // CRUD operations for Firestore
-  const createUserData = async (userId, name, age) => {
+  const createUserData = async (userId, userData) => {
     try {
-      await setDoc(doc(db, 'users', userId), {
-        name,
-        age
-      });
+      await setDoc(doc(db, 'users', userId), userData);
       toast.success('User data created!');
     } catch (error) {
       console.error("Error creating user data:", error);
@@ -96,7 +93,8 @@ export const UserProvider = ({ children }) => {
   const register = async (userData, callback) => {
     createUserWithEmailAndPassword(auth, userData.email, userData.password)
       .then((userCredentials) => {
-        createUserData(userCredentials.user.uid, userData.name, userData.age);
+        const { password, ...data } = userData;
+        createUserData(userCredentials.user.uid, data);
         setUser(userCredentials.user.uid);
         toast.success('Account created successfully!');
       }).catch((error) => {

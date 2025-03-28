@@ -162,7 +162,6 @@ export const loginVoiceForm = createVoiceFormSetup({
                     },
                 ],
             },
-            exit: ['submitAndCleanup'],
         },
         end : {
             type: 'final',
