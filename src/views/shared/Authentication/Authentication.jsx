@@ -114,18 +114,20 @@ function Authentication({ userType }) {
     }
     const voice_auth = 
     <div className="voice-auth">
-    
         {voiceForm ? <VoiceForm voiceForm={voiceForm} onSubmit={onSubmit}></VoiceForm> : 
         <div className="press-to-start"
         onDoubleClick={handleDoubleClick}
         onMouseDown={handleMouseDown}
         onMouseUp={handleRelease}
-        onMouseOut={handleRelease}></div>}
+        onMouseOut={handleRelease}>
+        <h2>Double tap to start</h2>
+        </div>}
     </div>
     
 
     const visual_auth = 
     <div className="visual-auth">
+        <h2>{isLogin ? "Login" : "Sign Up"}</h2>
         <form onSubmit={handleSubmit}>
             <div className="input-group">
                 <label htmlFor="email">Email</label>
@@ -193,7 +195,7 @@ function Authentication({ userType }) {
 
     return (
         <div className="auth-box">
-            <h2>{isLogin ? "Login" : "Sign Up"}</h2>
+            
             {userType === "patient" ? (
                 voice_auth    
             ) : (

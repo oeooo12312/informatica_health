@@ -20,7 +20,7 @@ function App() {
    * 2. Doctors
    * 3. Pharmacy
    */
-  const userType = "patient"
+  const userType = "doctor"
 
   return (    
     <ThemeProvider>
@@ -39,6 +39,7 @@ function App() {
     </BrowserRouter>
     </UserProvider>
     </ThemeProvider>
+    
   )
 }
 
