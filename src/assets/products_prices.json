@@ -1,0 +1,18 @@
+{
+  "prod_S1dMyIziWthrbK": {
+    "description": "test",
+    "priceId": "price_1R7a5zJzOplNlyVkaiQ2syPH"
+  },
+  "prod_RpeDMWdeAknPeG": {
+    "description": "testing 2",
+    "priceId": "price_1QvyuhJzOplNlyVkuQNx4lkf"
+  },
+  "prod_RpeCDC29FnYDiy": {
+    "description": "test_product1",
+    "priceId": "price_1QvyuOJzOplNlyVkYlgZICtR"
+  },
+  "prod_RpHAQ6IWHhGaGH": {
+    "description": "testing this product price id",
+    "priceId": "price_1QvccNJzOplNlyVkNxZWLcY5"
+  }
+}

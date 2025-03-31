@@ -25,10 +25,6 @@ export const createVoiceFormSetup = ({
             askQuestion: ({ context }) => {
                 context.current_state += 1;
                 startSpeak(context);
-                console.log(q_map);
-                console.log(context.current_state);
-
-                console.log(q_map[context.current_state]);
                 textToSpeech(
                     `${q_map[context.current_state]}`,
                     beepAudio,

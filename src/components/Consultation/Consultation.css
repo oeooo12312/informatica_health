@@ -1,12 +1,19 @@
 .consultation-container {
   display: flex;
   gap: 20px;
-  padding: 20px;
+  padding: 50px;
 }
 
 .video-call {
   flex: 2;
   text-align: center;
+}
+
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
 }
 
 .sidebar {
@@ -33,6 +40,7 @@ select, input, textarea {
 }
 
 button {
+  width: 200px;
   margin-top: 15px;
   padding: 10px;
   background-color: #007bff;

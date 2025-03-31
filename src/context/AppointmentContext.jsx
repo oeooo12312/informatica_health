@@ -19,13 +19,17 @@ export const AppointmentProvider = ({ children }) => {
             // 1. Get the current time and add 10 minutes
             const currentTime = new Date();
             const scheduledTime = new Date(currentTime.getTime() + 10 * 60000); // Add 10 minutes (60000 ms = 1 minute)
-    
             // 2. Format scheduled time for your system (ISO String or Unix Timestamp)
-            const scheduledTimeString = scheduledTime.toISOString(); // You can use .getTime() if you prefer Unix timestamp
+            const scheduledTimeString = scheduledTime.toISOString().split('.')[0] + "Z"; // You can use .getTime() if you prefer Unix timestamp
     
             // 3. Generate a meeting link (assuming a placeholder meeting link format here)
-            const meetingLink = `https://your-meeting-platform.com/meeting/${scheduledTimeString}`;
-    
+            // const meetingRes= await fetch(`http://localhost:5000/api/appointments/create-meeting-link?scheduledTime=${scheduledTimeString}`);
+            // const meetingData = await meetingRes.json();
+            // const meetingLink = meetingData.meetLink
+            const generateRoomName = () => `JitsiMeetingRoomNo${Math.random() * 100}-${Date.now()}`;
+            const roomName = generateRoomName();
+            const meetingLink = `https://meet.jit.si/${roomName}`;
+
             // 4. Notify user
             console.log("Scheduled Time for Meeting:", scheduledTimeString);
             console.log("Generated Meeting Link:", meetingLink);
@@ -52,6 +56,7 @@ export const AppointmentProvider = ({ children }) => {
             // Optionally, save this info in Firestore or another state
             // You might want to add a field like meetingLink to the currentAppointment
             currentAppointment.meetingLink = meetingLink;
+            currentAppointment.roomName = roomName;
     
             console.log(currentAppointment);
             return currentAppointment;

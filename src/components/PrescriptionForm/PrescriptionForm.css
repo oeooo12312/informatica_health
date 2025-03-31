@@ -1,0 +1,29 @@
+.prescription-form {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  .prescription-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .prescription-row select,
+  .prescription-row input {
+    padding: 5px;
+    flex: 1;
+  }
+  .add-button,
+  .submit-button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
